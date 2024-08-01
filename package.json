@@ -2,7 +2,7 @@
   "name": "pixels",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lexcast.github.io/pixels/",
+  "homepage": "https://isapirola.github.io/pixels-master/",
   "dependencies": {
     "autoprefixer": "^9.8.0",
     "delta-e": "^0.0.7",
