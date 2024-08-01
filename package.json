@@ -23,7 +23,7 @@
     "build:tw": "./node_modules/.bin/postcss ./src/styles/tailwind.css -o ./src/styles/index.css --env production",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "yarn build:tw && yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.2.0",
+    "gh-pages": "^6.1.1",
     "postcss-cli": "^7.1.1",
     "tailwindcss": "^1.4.6"
   }
