@@ -51,7 +51,7 @@ const ImagesGrid = ({
               {colorsImage[id].total}
             </div>
             <div className="w-20 flex items-center justify-end text-sm">
-              R${Math.round(colorsImage[id].total * cost + 9)},00
+              R${Math.round(colorsImage[id].total * cost + 10)},00
             </div>
             <div className="flex-1 flex flex-wrap items-center justify-center px-2">
               <PalettePixels palette={colorsImage[id].count} useKey />

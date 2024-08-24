@@ -39,13 +39,11 @@ const ImageDetail = ({
     <>
       <div
         onClick={() => setSelectedImage(null)}
-        className="bg-gray-900 opacity-50 w-full h-full fixed z-20 top-0 left-0"
-      ></div>
+        className="bg-gray-900 opacity-50 w-full h-full fixed z-20 top-0 left-0"></div>
       <div className="w-full h-full px-24 py-10 pointer-events-none fixed z-30 top-0 left-0 flex items-center justify-center">
         <button
           onClick={() => moveSelectedImage(-1)}
-          className="mr-2 w-10 h-10 rounded hover:bg-gray-700 flex items-center justify-center text-white font-bold text-xl cursor-pointer pointer-events-auto"
-        >
+          className="mr-2 w-10 h-10 rounded hover:bg-gray-700 flex items-center justify-center text-white font-bold text-xl cursor-pointer pointer-events-auto">
           ◄
         </button>
         <div className="flex flex-col max-h-full max-w-full p-3 overflow-auto pointer-events-auto bg-gray-700 rounded shadow-lg">
@@ -77,7 +75,7 @@ const ImageDetail = ({
                     Pixels: <b>{colors.total}</b>
                   </span>
                   <span>
-                    Cost: <b>${(colors.total * cost).toFixed(2)}</b>
+                    Cost: <b>R${Math.round(colors.total * cost + 10)},00</b>
                   </span>
                 </div>
               </div>
@@ -89,8 +87,7 @@ const ImageDetail = ({
         </div>
         <button
           onClick={() => moveSelectedImage(1)}
-          className="ml-2 w-10 h-10 rounded hover:bg-gray-700 flex items-center justify-center text-white font-bold text-xl cursor-pointer pointer-events-auto"
-        >
+          className="ml-2 w-10 h-10 rounded hover:bg-gray-700 flex items-center justify-center text-white font-bold text-xl cursor-pointer pointer-events-auto">
           ►
         </button>
       </div>

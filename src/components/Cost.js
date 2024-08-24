@@ -5,7 +5,7 @@ const Cost = ({ cost, setCost }) => {
     const newCost = prompt("Set cost per pixel", cost);
 
     if (newCost && !isNaN(newCost)) {
-      setCost(0.04);
+      setCost(newCost);
 
       localStorage.setItem("cost", newCost);
     }
