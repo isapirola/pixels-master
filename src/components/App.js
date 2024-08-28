@@ -11,7 +11,7 @@ import defaultPalettes from "data/palettes";
 import closerColor, { algorithms } from "utils/closerColor";
 import imageColors from "selectors/imageColors";
 
-const DEFAULT_COST = 0.04;
+const DEFAULT_COST = 0.05;
 
 const App = () => {
   const [cost, setCost] = useState(localStorage.getItem("cost") || DEFAULT_COST);

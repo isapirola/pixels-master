@@ -12,7 +12,7 @@ const GlobalCounter = ({ colorsGlobal, pixels, cost, sprites }) => {
           Pixels: <b>{pixels}</b>
         </span>
         <span>
-          Cost: <b>${cost}</b>
+          Cost: <b>R${Math.round(cost)},00</b>
         </span>
       </div>
       <PaletteCounter palette={colorsGlobal} />
