@@ -62,4 +62,6 @@ const toLab = colors => {
   });
 };
 
-export default { from, match };
+const closerColor = { from, match };
+
+export default closerColor;
