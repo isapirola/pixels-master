@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from "react";
 import FileDropzone from "./FileDropzone";
-import PaletteGenerate from "./PaletteGenerate";
 import AlgorithmSelector from "./AlgorithmSelector";
 import GlobalCounter from "./GlobalCounter";
 import ImagesGrid from "./ImagesGrid";
@@ -11,12 +10,12 @@ import closerColor, { algorithms } from "utils/closerColor";
 import imageColors from "selectors/imageColors";
 
 const DEFAULT_COST = 0.04;
+const selectedPalette = "pixel-bela";
+const palette = defaultPalettes[selectedPalette];
 
 const App = () => {
   const [cost, setCost] = useState(localStorage.getItem("cost") || DEFAULT_COST);
   const [images, setImages] = useState({});
-  const [palettes, setPalettes] = useState(defaultPalettes);
-  const [selectedPalette, setSelectedPalette] = useState("pixel-bela");
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedAlgorithm, setSelectedAlgorithm] = useState(algorithms.DELTA_E00);
 
@@ -32,8 +31,6 @@ const App = () => {
 
     setSelectedImage(imagesKeys[newIndex]);
   };
-
-  const palette = palettes[selectedPalette];
 
   const { colorsImage, colorsGlobal, globalCount } = useMemo(() => {
     const colorsImage = {};
@@ -74,7 +71,6 @@ const App = () => {
     <div className="w-screen h-screen font-sans text-white p-3">
       <div className="flex p-3 text-gray-500 uppercase text-base">
         <FileDropzone {...{ setImages }} />
-        <PaletteGenerate {...{ images, setPalettes }} />
         <Cost {...{ cost, setCost }} />
       </div>
       <AlgorithmSelector {...{ selectedAlgorithm, setSelectedAlgorithm }} />
