@@ -32,6 +32,18 @@ const App = () => {
     setSelectedImage(imagesKeys[newIndex]);
   };
 
+  const deleteImage = (id) => {
+    setImages((prevImages) => {
+      const nextImages = { ...prevImages };
+      delete nextImages[id];
+      return nextImages;
+    });
+
+    if (selectedImage === id) {
+      setSelectedImage(null);
+    }
+  };
+
   const { colorsImage, colorsGlobal, globalCount } = useMemo(() => {
     const colorsImage = {};
     const colorsGlobal = {};
@@ -68,8 +80,8 @@ const App = () => {
   const sprites = Object.keys(images).length;
 
   return (
-    <main className="h-screen flex flex-col font-sans text-white p-6 gap-4">
-      <div className="flex items-stretch text-gray-500 uppercase text-base gap-4">
+    <main className="h-screen flex flex-col font-sans text-white p-6 gap-4 w-full mx-auto xl:w-3/4">
+      <div className="flex items-stretch mx-auto text-gray-500 uppercase text-base gap-4 ">
         <FileDropzone {...{ setImages }} />
         <Cost {...{ cost, setCost }} />
       </div>
@@ -91,6 +103,7 @@ const App = () => {
             colorsImage,
             cost,
             setSelectedImage,
+            deleteImage,
           }}
         />
       )}
