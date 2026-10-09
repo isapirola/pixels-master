@@ -38,7 +38,7 @@ const FileDropzone = ({ setImages }) => {
   return (
     <div
       {...getRootProps()}
-      className="flex items-center justify-center p-6 w-1/2 mx-2 cursor-pointer text-center hover:bg-gray-800 rounded-lg border-2 border-dashed border-gray-500"
+      className="flex items-center justify-center p-8 flex-1 cursor-pointer text-center hover:bg-gray-800 rounded-lg border-2 border-dashed border-gray-500"
     >
       <input {...getInputProps()} accept="image/*" />
       {isDragActive ? (

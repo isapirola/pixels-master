@@ -63,7 +63,7 @@ const ImagesGrid = ({
   };
 
   return (
-    <div className="p-3 flex w-3/4 m-auto flex-col items-center">
+    <div className="flex flex-col flex-1 min-h-0 mt-2 mx-4 items-center">
       <div className="flex w-full p-2 text-xs uppercase text-gray-500 bg-gray-800 rounded-t opacity-50">
         <div className="w-20 flex items-center justify-center">Original</div>
         <div className="w-20 flex items-center justify-center">Resultado</div>
@@ -71,11 +71,11 @@ const ImagesGrid = ({
         <div className="w-20 flex items-center justify-end">Preço</div>
         <div className="flex-1 flex flex-wrap items-center justify-center">Paleta</div>
       </div>
-      <div className="w-full">
+      <div className="w-full flex-1 min-h-0">
         <AutoSizer>
-          {({ width }) => (
+          {({ height, width }) => (
             <List
-              height={300}
+              height={height}
               width={width}
               rowCount={list.length}
               rowHeight={80}

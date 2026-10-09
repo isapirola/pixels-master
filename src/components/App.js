@@ -68,8 +68,8 @@ const App = () => {
   const sprites = Object.keys(images).length;
 
   return (
-    <div className="w-screen h-screen font-sans text-white p-3">
-      <div className="flex p-3 text-gray-500 uppercase text-base">
+    <main className="h-screen flex flex-col font-sans text-white p-6 gap-4">
+      <div className="flex items-stretch text-gray-500 uppercase text-base gap-4">
         <FileDropzone {...{ setImages }} />
         <Cost {...{ cost, setCost }} />
       </div>
@@ -108,7 +108,7 @@ const App = () => {
           }}
         />
       )}
-    </div>
+    </main>
   );
 };
 

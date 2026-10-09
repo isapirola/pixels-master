@@ -6,18 +6,18 @@ const GlobalCounter = ({ colorsGlobal, pixels, cost, sprites }) => {
   const avgCost = sprites > 0 ? ((cost / sprites) + 6).toFixed(2).replace(".", ",") : "0,00";
 
   return (
-    <div className="p-3">
-      <div className="text-center text-sm uppercase">
-        <span className="mr-2">
+    <div className="flex flex-col gap-4 items-center">
+      <div className=" flex gap-3 text-center text-sm uppercase">
+        <span>
           Sprites: <b>{sprites}</b>
         </span>
-        <span className="mr-2">
+        <span>
           Total pixels: <b>{pixels}</b>
         </span>
-        <span className="mr-2">
+        <span>
           Média pixels: <b>{avgPixels}</b>
         </span>
-        <span className="mr-2">
+        <span>
           Custo total: <b>R${Math.round(cost)},00</b>
         </span>
         <span>
