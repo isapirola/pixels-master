@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from "react";
 import FileDropzone from "./FileDropzone";
 import PaletteGenerate from "./PaletteGenerate";
-import PaletteSelector from "./PaletteSelector";
 import AlgorithmSelector from "./AlgorithmSelector";
 import GlobalCounter from "./GlobalCounter";
 import ImagesGrid from "./ImagesGrid";
@@ -17,7 +16,7 @@ const App = () => {
   const [cost, setCost] = useState(localStorage.getItem("cost") || DEFAULT_COST);
   const [images, setImages] = useState({});
   const [palettes, setPalettes] = useState(defaultPalettes);
-  const [selectedPalette, setSelectedPalette] = useState(null);
+  const [selectedPalette, setSelectedPalette] = useState("pixel-bela");
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedAlgorithm, setSelectedAlgorithm] = useState(algorithms.DELTA_E00);
 
@@ -78,7 +77,6 @@ const App = () => {
         <PaletteGenerate {...{ images, setPalettes }} />
         <Cost {...{ cost, setCost }} />
       </div>
-      <PaletteSelector {...{ palettes, selectedPalette, setSelectedPalette }} />
       <AlgorithmSelector {...{ selectedAlgorithm, setSelectedAlgorithm }} />
       {selectedPalette && sprites > 0 && (
         <GlobalCounter
