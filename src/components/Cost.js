@@ -14,7 +14,7 @@ const Cost = ({ cost, setCost }) => {
   return (
     <button
       onClick={askCost}
-      className="uppercase flex items-center justify-center cursor-pointer mx-2 p-6 w-1/2 text-center rounded-lg border-2 hover:bg-gray-800 border-dashed border-gray-500 w-16">
+      className="uppercase flex items-center justify-center cursor-pointer mx-2 p-6 w-1/2 text-center rounded-lg border-2 hover:bg-gray-800 border-dashed border-gray-500">
       Custo por pixel: R${cost}
     </button>
   );

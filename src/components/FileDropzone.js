@@ -42,10 +42,11 @@ const FileDropzone = ({ setImages }) => {
     >
       <input {...getInputProps()} accept="image/*" />
       {isDragActive ? (
-        <p>Drop the files here ...</p>
-      ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
-      )}
+          <p>Solte os arquivos aqui...</p>
+        ) : (
+          <p>Arraste e solte alguns arquivos aqui ou clique para selecionar os arquivos</p>
+        )
+      }
     </div>
   );
 };

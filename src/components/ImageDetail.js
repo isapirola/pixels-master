@@ -75,7 +75,7 @@ const ImageDetail = ({
                     Pixels: <b>{colors.total}</b>
                   </span>
                   <span>
-                    Cost: <b>R${Math.round(colors.total * cost + 10)},00</b>
+                    Cost: <b>R${Math.round(colors.total * cost + 6)},00</b>
                   </span>
                 </div>
               </div>
