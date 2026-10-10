@@ -14,6 +14,7 @@ const ImageDetail = ({
   cost,
 }) => {
   const [selectedColor, setSelectedColor] = useState(null);
+  const [hasGap, setHasGap] = useState(false);
   const ZOOM = 1.6;
   const effectivePixelSize = PIXEL_SIZE * ZOOM;
 
@@ -60,7 +61,7 @@ const ImageDetail = ({
           ◄
         </button>
         <div className="flex flex-col w-auto max-w-[95vw] max-h-[94vh] p-6 overflow-y-auto overflow-x-hidden pointer-events-auto bg-gray-800 rounded-2xl shadow-2xl border border-gray-700">
-          {/* Header do modal com informações e botão de fechar */}
+          {/* Header do modal com informações, toggle de espaçamento e botão de fechar */}
           <div className="flex items-center justify-between pb-3 mb-3 border-b border-gray-700 text-sm gap-4">
             <div className="flex items-center gap-2 text-gray-300">
               <span className="font-semibold text-white truncate max-w-md">{id}</span>
@@ -69,14 +70,26 @@ const ImageDetail = ({
               </span>
             </div>
 
-            <button
-              type="button"
-              onClick={() => setSelectedImage(null)}
-              title="Fechar (Esc)"
-              className="w-8 h-8 rounded-full bg-gray-700 hover:bg-red-600 text-white flex items-center justify-center transition-colors text-sm font-bold"
-            >
-              ✕
-            </button>
+            <div className="flex items-center gap-4">
+              <label className="flex items-center gap-2 cursor-pointer text-xs text-gray-300 hover:text-white select-none bg-gray-900/70 px-3 py-1.5 rounded-lg border border-gray-700 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={hasGap}
+                  onChange={(e) => setHasGap(e.target.checked)}
+                  className="rounded text-blue-500 focus:ring-0 cursor-pointer w-4 h-4 accent-blue-500"
+                />
+                <span>Espaçamento entre pixels</span>
+              </label>
+
+              <button
+                type="button"
+                onClick={() => setSelectedImage(null)}
+                title="Fechar (Esc)"
+                className="w-8 h-8 rounded-full bg-gray-700 hover:bg-red-600 text-white flex items-center justify-center transition-colors text-sm font-bold"
+              >
+                ✕
+              </button>
+            </div>
           </div>
 
           {/* Área de visualização das imagens: lado a lado por padrão, quebra para baixo se não couber */}
@@ -108,6 +121,7 @@ const ImageDetail = ({
                   size={effectivePixelSize}
                   titled={selectedPalette ? true : false}
                   selectedColor={selectedColor}
+                  hasGap={hasGap}
                 />
               </div>
             </div>

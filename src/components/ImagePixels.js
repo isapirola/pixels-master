@@ -9,17 +9,23 @@ const ImagePixels = ({
   size,
   titled,
   selectedColor,
+  hasGap,
 }) => {
   return (
     <div
+      className={`inline-flex flex-col ${hasGap ? "gap-[1px] bg-white/40 p-[1px] rounded" : ""}`}
       style={{
-        width: width * size + "px",
-        height: height * size + "px"
+        width: hasGap ? width * size + (width - 1) + 2 + "px" : width * size + "px",
+        height: hasGap ? height * size + (height - 1) + 2 + "px" : height * size + "px",
       }}
     >
       {pixels.map((r, i) => {
         return (
-          <div className="flex" key={i} style={{ height: size + "px" }}>
+          <div
+            className={`flex ${hasGap ? "gap-[1px]" : ""}`}
+            key={i}
+            style={{ height: size + "px" }}
+          >
             {r.map((p, j) => {
               if (!p) {
                 return (
@@ -39,7 +45,7 @@ const ImagePixels = ({
                 return (
                   <div
                     key={j}
-                    className="inline-block"
+                    className={`inline-block ${hasGap ? "rounded-[1px]" : ""}`}
                     title={titled ? map[p.hex] : null}
                     style={{
                       backgroundColor: color,
