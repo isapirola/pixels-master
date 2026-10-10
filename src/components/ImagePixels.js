@@ -1,6 +1,15 @@
 import React from "react";
 
-const ImagePixels = ({ pixels, map, palette, width, height, size, titled }) => {
+const ImagePixels = ({
+  pixels,
+  map,
+  palette,
+  width,
+  height,
+  size,
+  titled,
+  selectedColor,
+}) => {
   return (
     <div
       style={{
@@ -25,6 +34,7 @@ const ImagePixels = ({ pixels, map, palette, width, height, size, titled }) => {
                 );
               } else {
                 const color = palette ? palette[map[p.hex]] : p.hex;
+                const isDimmed = selectedColor && color !== selectedColor;
 
                 return (
                   <div
@@ -34,7 +44,8 @@ const ImagePixels = ({ pixels, map, palette, width, height, size, titled }) => {
                     style={{
                       backgroundColor: color,
                       width: size + "px",
-                      height: size + "px"
+                      height: size + "px",
+                      opacity: isDimmed ? 0.15 : 1
                     }}
                   />
                 );
